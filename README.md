@@ -1,119 +1,123 @@
-# README.md
 
-This repository contains multiple Machine Learning projects developed during my internship. Each folder is a self-contained project with scripts, models, notebooks, and deployment tools.
 
----
+````markdown
+# 🤖 Internship-ML-Krishna
 
-## 🔍 Project 3: SMS Spam Detection (Advanced NLP + Ensemble Models)
+This repository showcases a collection of applied machine learning projects developed during my internship at **IndoLike**. Each project demonstrates the use of ML models integrated with Flask to create interactive web apps for real-world problem-solving.
 
-A production-ready spam detection system using:
-- Deep NLP preprocessing
-- Structural + linguistic feature engineering
-- Ensemble models (Random Forest, XGBoost, Naive Bayes) stacked with Logistic Regression
-
-## 📁 Repository Structure
-
-```
-📦 Root Folder
-├── Customer-Segmentation/              # Project 1
-├── Handwritten-text-generation/        # Project 2
-├── Spam-SMS-Detection/                 # Project 3 (this one)
-│   ├── data/
-│   │   └── spam.csv
-│   ├── notebooks/
-│   │   ├── spam_detector.py            # Advanced spam detector training script
-│   │   └── Spam_SMS_detection.ipynb
-│   ├── Snapshots/                      # Screenshots for report/demo
-│   ├── templates/
-│   │   └── index.html                  # Web frontend
-│   ├── app.py                          # Flask app for live predictions
-│   ├── spam_model.pkl                  # Model (optional legacy)
-│   ├── spam_xgb_model.pkl              # Model (optional legacy)
-│   ├── tfidf_vectorizer.pkl            # Vectorizer (optional legacy)
-│   ├── spam_detection_model.pkl        # ✅ Final trained ensemble model
-│   ├── requirements.txt
-│   └── README.md                       # This file
-```
+> 👨‍💻 Author: Krishna Viradiya  
+> 🏢 Internship: IndoLike  
+> 📅 Duration: June – July 2025  
 
 ---
 
-## 🧠 Model Architecture
+## 📁 Projects Overview
 
-- **Text Preprocessing**
-  - Lowercasing, URL/phone/email removal, emoji removal
-  - Tokenization, lemmatization, stopword removal (NLTK)
+### 1. 🔐 Credit Card Fraud Detection
 
-- **Features**
-  - TF-IDF of message content
-  - Structural features (char count, digit count, URLs, keyword matches, etc.)
+Predicts fraudulent transactions using a Logistic Regression model trained on imbalanced financial data.
 
-- **Models**
-  - Random Forest (RF)
-  - XGBoost (XGB)
-  - Multinomial Naive Bayes (NB)
-  - Combined using `StackingClassifier` with Logistic Regression as the final estimator
+**Features:**
+- Upload transaction CSV files
+- Predict and highlight fraudulent transactions
+- Download results with fraud labels
+- User-friendly web interface
+
+**Dataset:**  
+[🔗 Credit Card Fraud Dataset (Kartik2112 - Kaggle)](https://www.kaggle.com/datasets/kartik2112/fraud-detection)
+
+**Tech Stack:** Python, Flask, Pandas, Scikit-learn
 
 ---
 
-## ⚙️ How to Run
+### 2. 👥 Customer Segmentation
 
-### 1. Set up environment
+Uses K-Means clustering to segment retail customers based on their annual income and spending score.
+
+**Features:**
+- Filter and select clustering features
+- Auto-select optimal K using silhouette score
+- Visualize clusters with Matplotlib & Seaborn
+- Download clustered results and plots
+
+**Dataset:**  
+[🔗 Customer Segmentation Dataset (vjchoudhary7 - Kaggle)](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python)
+
+**Tech Stack:** Python, Flask, Scikit-learn, Matplotlib, Seaborn
+
+---
+
+### 3. ✉️ Spam SMS Detection
+
+Detects spam messages using Natural Language Processing (TF-IDF + Logistic Regression).
+
+**Features:**
+- Classify SMS as spam or ham
+- View confidence score
+- Minimal and responsive UI
+
+**Dataset:**  
+[🔗 SMS Spam Collection Dataset (UCI - Kaggle)](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
+
+**Tech Stack:** Python, Flask, NLTK, Scikit-learn
+
+---
+
+## 🚀 How to Run
+
+1. **Clone the repository:**
 ```bash
-cd Spam-SMS-Detection
+git clone https://github.com/Kv1108/Internship-ML-Krishna.git
+cd Internship-ML-Krishna
+````
+
+2. **Set up environment:**
+
+```bash
 python -m venv venv
-venv\Scripts\activate     # On Windows
+venv\Scripts\activate  # Windows
+# or
+source venv/bin/activate  # Linux/macOS
+```
+
+3. **Install dependencies:**
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Train the Model
-```bash
-python notebooks/spam_detector.py
-```
+4. **Run any project:**
 
-This will:
-- Train the full pipeline
-- Show performance metrics and feature importance
-- Save the model to `spam_detection_model.pkl`
-
-### 3. Launch the Web App
 ```bash
+cd <project-folder-name>
 python app.py
 ```
-Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser to use the spam detector.
+
+Example:
+
+```bash
+cd Credit-card-fraud
+python app.py
+```
+
+Access the app at: `http://localhost:5000`
 
 ---
 
-## 📊 Evaluation Metrics
-- **Confusion Matrix**
-- **Classification Report**
-- **ROC-AUC Score**
-- **Feature Importance Visualization**
+## 📊 ML Models Used
+
+| Project               | Model Used                   | Notes                                              |
+| --------------------- | ---------------------------- | -------------------------------------------------- |
+| Credit Card Fraud     | Logistic Regression          | Trained on cleaned financial transaction data      |
+| Customer Segmentation | K-Means Clustering           | Clustered customers based on spending habits       |
+| Spam SMS Detection    | TF-IDF + Logistic Regression | Preprocessed with tokenization & stop word removal |
 
 ---
 
-## 🖼️ Snapshots
-Screenshots from the project are available under the `Snapshots/` folder.
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 📦 Requirements
-Main libraries:
-- `scikit-learn`
-- `xgboost`
-- `nltk`
-- `pandas`, `numpy`
-- `matplotlib`, `seaborn`
-- `emoji`, `flask`
-
-> Install via: `pip install -r requirements.txt`
-
----
-
-## 🙋 Author
-**Krishna Viradiya**  
-Internship Projects - 2025
-
----
-
-## 📝 License
-MIT License - Feel free to fork, reuse, and improve this work.
+```
