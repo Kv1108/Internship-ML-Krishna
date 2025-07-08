@@ -3,11 +3,9 @@
 ````markdown
 # 🤖 Internship-ML-Krishna
 
-This repository showcases a collection of applied machine learning projects developed during my internship at **IndoLike**. Each project demonstrates the use of ML models integrated with Flask to create interactive web apps for real-world problem-solving.
+This repository showcases a collection of applied machine learning projects developed. Each project demonstrates the use of ML models integrated with Flask to create interactive web apps for real-world problem-solving.
 
-> 👨‍💻 Author: Krishna Viradiya  
-> 🏢 Internship: IndoLike  
-> 📅 Duration: June – July 2025  
+> 👨‍💻 Author: Krishna Viradiya    
 
 ---
 
