@@ -116,4 +116,4 @@ Internship Projects - 2025
 ---
 
 ## 📝 License
-MIT License - Free to use, modify, and distribute.
+MIT License - Feel free to fork, reuse, and improve this work.

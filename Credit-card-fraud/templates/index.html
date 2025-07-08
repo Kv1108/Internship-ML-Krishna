@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <!-- Load CSS using Flask's url_for -->
+    <link rel="stylesheet" href="static\style.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Flash Messages Section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-{{ category }}">
+                            <i class="fas fa-{% if category == 'error' %}exclamation-circle{% else %}check-circle{% endif %}"></i>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <header>
+            <div class="header-content">
+                <i class="fas fa-shield-alt icon"></i>
+                <h1>Credit Card Fraud Detection</h1>
+                <p class="subtitle">Identify suspicious transactions with AI-powered analysis</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="upload-section card">
+                <h2><i class="fas fa-cloud-upload-alt"></i> Upload Transaction Data</h2>
+                <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-input-container">
+                        <label for="file-upload" class="file-upload-label">
+                            <i class="fas fa-file-csv"></i>
+                            <span id="file-name">Choose a CSV file</span>
+                            <span class="browse-btn">Browse Files</span>
+                        </label>
+                        <input id="file-upload" type="file" name="file" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="predict-btn">
+                        <i class="fas fa-search"></i> Detect Fraud
+                    </button>
+                </form>
+                <div class="file-requirements">
+                    <p><i class="fas fa-info-circle"></i> File must be in CSV format with Time and Amount columns</p>
+                </div>
+            </section>
+
+            {% if frauds is defined %}
+            <section class="results-section card">
+                <div class="results-header">
+                    <h2><i class="fas fa-poll"></i> Detection Results</h2>
+                    <div class="fraud-alert">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>
+                            Fraud Detected: <strong>{{ frauds }}</strong> out of {{ total }} ({{ percentage }})
+                        </span>
+                    </div>
+                    {% if result_file %}
+                    <a href="{{ url_for('download', filename=result_file) }}" class="download-btn">
+                        <i class="fas fa-download"></i> Download Full Results
+                    </a>
+                    {% endif %}
+                </div>
+                
+                <div class="table-container">
+                    {{ tables[0]|safe }}
+                </div>
+            </section>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>© 2025 Fraud Detection System | Made by Krishna</p>
+        </footer>
+    </div>
+
+    <script>
+        // Display selected filename
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'Choose a CSV file';
+            document.getElementById('file-name').textContent = fileName;
+        });
+
+        // Add 'data' class to table if not present
+        document.addEventListener('DOMContentLoaded', function() {
+            const tables = document.querySelectorAll('.table-container table');
+            tables.forEach(table => {
+                if (!table.classList.contains('data')) {
+                    table.classList.add('data');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

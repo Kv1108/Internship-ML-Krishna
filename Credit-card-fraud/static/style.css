@@ -1,0 +1,405 @@
+/* ===== BASE STYLES ===== */
+:root {
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary: #3f37c9;
+    --danger: #f72585;
+    --warning: #ff9e00;
+    --success: #4cc9f0;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.icon {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(67, 97, 238, 0.2));
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--gray);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* ===== CARD STYLES ===== */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== UPLOAD SECTION ===== */
+.upload-section h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.file-input-container {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border: 2px dashed #d1d5db;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: rgba(248, 249, 250, 0.5);
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.file-upload-label i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-right: 1rem;
+}
+
+#file-upload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.browse-btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.file-upload-label:hover .browse-btn {
+    background-color: var(--primary-dark);
+}
+
+.file-requirements {
+    margin-top: 0.5rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-requirements i {
+    color: var(--primary);
+}
+
+.predict-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+}
+
+.predict-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(67, 97, 238, 0.25);
+}
+
+.predict-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== RESULTS SECTION ===== */
+.results-section h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fraud-alert {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--danger);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(247, 37, 133, 0.2);
+}
+
+.fraud-alert i {
+    font-size: 1.1rem;
+}
+
+.download-btn {
+    background-color: var(--success);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(76, 201, 240, 0.2);
+}
+
+.download-btn:hover {
+    background-color: #3ab0d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 201, 240, 0.3);
+}
+
+/* ===== TABLE STYLES ===== */
+.table-container {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--light-gray);
+}
+
+.data {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 600px;
+}
+
+.data th {
+    background-color: var(--primary);
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+}
+
+.data td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    vertical-align: middle;
+}
+
+.data tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.data tr:hover {
+    background-color: rgba(67, 97, 238, 0.03);
+}
+
+.data tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== FLASH MESSAGES ===== */
+.flash-messages {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+.flash-error {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--danger);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(247, 37, 133, 0.2);
+    box-shadow: var(--box-shadow);
+    animation: slideIn 0.3s ease forwards;
+}
+
+.flash-success {
+    background-color: rgba(76, 201, 240, 0.1);
+    color: var(--success);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    box-shadow: var(--box-shadow);
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .flash-messages {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .file-upload-label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    #file-name {
+        max-width: 100%;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+    }
+}
