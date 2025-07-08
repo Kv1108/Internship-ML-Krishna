@@ -10,3 +10,10 @@ venv/
 
 # Ignore model files (if too large)
 *.pkl
+
+# .gitignore
+# Ignore large dataset files
+Credit-card-fraud/Data/creditcard.csv
+Credit-card-fraud/predictions_output.csv
+
+
